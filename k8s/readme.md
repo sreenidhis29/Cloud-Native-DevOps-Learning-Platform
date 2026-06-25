@@ -105,7 +105,7 @@ aws rds create-db-instance \
   --engine-version 15 \
   --allocated-storage 20 \
   --master-username postgresadmin \
-  --master-user-password YourStrongPassword123! \
+  --master-user-password <YOUR_DB_PASSWORD> \
   --db-subnet-group-name akhilesh-postgres-private-subnet-group \
   --vpc-security-group-ids $SG_ID \
   --no-publicly-accessible \
@@ -165,7 +165,7 @@ curl http://localhost:8000/api/topics
 
 ## to check the db connection for troubleshooting
 kubectl run debug-pod --rm -it --image=postgres -- bash
-PGPASSWORD=postgrespassword psql -h devops-learning-db.devops-learning.svc.cluster.local -U postgres -d devops_learning
+PGPASSWORD=<YOUR_DB_PASSWORD> psql -h devops-learning-db.devops-learning.svc.cluster.local -U postgres -d devops_learning
 # run query
 SELECT COUNT(*) FROM topics;
 

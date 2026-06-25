@@ -19,7 +19,8 @@ helm install grafana grafana/grafana \
   --namespace monitoring \
   --set persistence.storageClassName="gp2" \
   --set persistence.enabled=true \
-  --set adminPassword='EKS!sAw3s0m3' \
+  --set adminPassword='<YOUR_GRAFANA_ADMIN_PASSWORD>' \
+
   --values - <<EOF
 datasources:
   datasources.yaml:
@@ -33,4 +34,4 @@ datasources:
 EOF
 
 # Get Grafana admin password
-echo "Grafana admin password: EKS!sAw3s0m3"
+echo "Grafana admin password: <YOUR_GRAFANA_ADMIN_PASSWORD>"
